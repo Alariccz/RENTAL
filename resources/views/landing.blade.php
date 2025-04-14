@@ -105,7 +105,7 @@
         <div class="flex items-center justify-between gap-1">
         <!-- Price -->
         <p class="text-sm font-normal text-secondary">
-          <span class="text-base font-bold text-primary">${{ $item->price }}</span>/day
+          <span class="text-base font-bold text-primary">Rp {{ $item->price }}</span>/day
         </p>
         <!-- Rating -->
         <p class="text-dark text-xs font-semibold flex items-center gap-[2px]">

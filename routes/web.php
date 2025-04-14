@@ -38,11 +38,15 @@ Route::name('front.')->group(function (){
 
 
 
+
     Route::group(['middleware' => 'auth'], function () {
+        Route::get('/transaction', [TransactionController::class, 'transaction'])->name('transaction');
         Route::get('/checkout/{slug}', [CheckoutController::class, 'index'])->name('checkout');
         Route::post('/checkout/{slug}', [CheckoutController::class, 'store'])->name('checkout.store');
         Route::get('/payment/{bookingId}', [PaymentController::class, 'index'])->name('payment');
         Route::post('/payment/{bookingId}', [PaymentController::class, 'update'])->name('payment.update');
+
+
     });
 });
 Route::prefix('admin')->name('admin.')->middleware([
