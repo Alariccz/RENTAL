@@ -24,6 +24,9 @@
 
     <!-- Scripts -->
     @vite(['resources/css/front.css'])
+    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{ config('services.midtrans.clientKey') }}"></script>
+
+
 
     <!-- Styles -->
     @livewireStyles
@@ -115,6 +118,42 @@
     </script>
 
     <script src="{{ url('js/script.js') }}"></script>
+    <script>
+        $('#checkoutButton').click(function (e) {
+          e.preventDefault();
+
+          const form = $('#checkoutForm');
+          const formData = form.serialize();
+
+          $.ajax({
+            url: form.attr('action'),
+            method: 'POST',
+            data: formData,
+            success: function (response) {
+              if (response.snapToken) {
+                snap.pay(response.snapToken, {
+                  onSuccess: function(result){
+                    window.location.href = '/payment/success';
+                  },
+                  onPending: function(result){
+                    window.location.href = '/payment/success';
+                  },
+                  onError: function(result){
+                    alert('Payment failed!');
+                  },
+                  onClose: function(){
+                    alert('You closed the payment popup without finishing.');
+                  }
+                });
+              }
+            },
+            error: function (xhr) {
+              alert('Something went wrong. Please try again.');
+            }
+          });
+        });
+      </script>
+
 
 </body>
 

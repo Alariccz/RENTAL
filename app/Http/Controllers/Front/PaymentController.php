@@ -23,16 +23,13 @@ class PaymentController extends Controller
         $booking->payment_method = $request->payment_method;
 
         if ($request->payment_method == 'midtrans') {
-            // Midtrans config
             \Midtrans\Config::$serverKey = config('services.midtrans.serverKey');
             \Midtrans\Config::$isProduction = config('services.midtrans.isProduction');
             \Midtrans\Config::$isSanitized = config('services.midtrans.isSanitized');
             \Midtrans\Config::$is3ds = config('services.midtrans.is3ds');
 
-            // Total price langsung pakai IDR dari database
             $totalPrice = (int) $booking->total_price;
 
-            // Midtrans params
             $midtransParams = [
                 'transaction_details' => [
                     'order_id' => 'TESTING-' . $booking->id . '-' . uniqid(),
@@ -46,16 +43,18 @@ class PaymentController extends Controller
                 'vtweb' => []
             ];
 
-            $paymentUrl = \Midtrans\Snap::createTransaction($midtransParams)->redirect_url;
+            $snapToken = \Midtrans\Snap::getSnapToken($midtransParams);
 
-            $booking->payment_url = $paymentUrl;
             $booking->save();
 
-            return redirect($paymentUrl);
+            return response()->json([
+                'snapToken' => $snapToken
+            ]);
         }
 
         return redirect()->route('front.index');
     }
+
 
     public function success(Request $request)
     {
