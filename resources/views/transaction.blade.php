@@ -1,9 +1,9 @@
 <x-front-layout>
-  <section class="container my-12">
+  <section class="container my-12" data-aos="fade-up" data-aos-delay="100">
     <h1 class="text-3xl font-bold mb-4">Transaksi Saya</h1>
 @auth
     @forelse ($bookings as $booking)
-      <div class="border rounded-lg p-6 shadow-md mb-6 bg-white">
+      <div class="border rounded-lg p-6 shadow-md mb-6 bg-white" >
         <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center">
         <div>
           <h2 class="text-xl font-semibold">{{ optional($booking->item)->name }}</h2>
@@ -26,7 +26,7 @@
         <div class="mt-4 lg:mt-0 flex flex-col items-start gap-2">
           <img src="{{ optional($booking->item)->thumbnail }}" alt="{{ optional($booking->item)->name }}"
           class="w-32 h-20 object-cover rounded">
-          <a href="https://wa.me/62895377200378?text=Halo%20Admin%20RideNic%2C%20saya%20ingin%20bertanya%20mengenai%20transaksi%20saya%20di%20website.%20Mohon%20bantuannya%20ya%21"
+          <a href="https://wa.me/62895377200378?text=Halo%20Admin%20Ridenic%2C%20saya%20ingin%20bertanya%20mengenai%20transaksi%20saya%20di%20website.%20Mohon%20bantuannya%20ya%21"
           target="_blank" class="btn-primary text-sm mt-2">
           Hubungi Admin Ridenic
           </a>

@@ -1,13 +1,13 @@
 <x-front-layout>
     <!-- Benefits Section -->
     <section class="bg-lightGrey container my-16">
-        <div class="container">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
             <div class="text-center mb-10" data-aos="fade-up">
                 <h2 class="text-3xl font-bold">Keuntungan Penyewaan Mobil</h2>
                 <p class="text-gray-600 mt-2">Kenapa memilih kami untuk kebutuhan penyewaan mobil Anda?</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8" data-aos="fade-up">
                 <!-- Benefit 1: Kemudahan Penyewaan -->
                 <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                     <img src="https://res.cloudinary.com/dljcrothp/image/upload/v1744642902/Kemudahan_Penyewaan_p6ime6.svg" alt="Kemudahan Penyewaan"
