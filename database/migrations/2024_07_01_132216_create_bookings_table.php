@@ -36,7 +36,7 @@ return new class extends Migration
 
             // relation to item and user
             $table->foreignId('item_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
 
             $table->softDeletes();
             $table->timestamps();

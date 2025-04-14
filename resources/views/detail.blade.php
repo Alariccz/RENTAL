@@ -11,7 +11,7 @@
           <li
               class="text-secondary font-normal text-base capitalize after:content-['/'] last:after:content-none inline-flex gap-5">
             <a href="#!">
-              {{ $item->brand->name }}
+              {{ $item->brand->name?? 'Unknown Brand' }}
             </a>
           </li>
           <li
@@ -44,7 +44,7 @@
                 <!-- Name, Category, Rating -->
                 <div class="max-w-[230px] pb-5">
                   <h1 class="font-bold text-[28px] leading-[42px] text-dark mb-[6px]">
-                    {{ $item->brand->name }} {{ $item->name }}
+                    {{ $item->brand->name?? 'Unknown Brand' }} {{ $item->name }}
                   </h1>
                   <p class="text-secondary font-normal text-base mb-[10px]">
                     {{ $item->type->name }}

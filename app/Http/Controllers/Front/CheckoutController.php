@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Front;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -46,15 +48,20 @@ class CheckoutController extends Controller
         // Add 10% tax
         $total_price = $total_price + ($total_price * 0.1);
 
+        // dd([
+        //     'user_id' => auth()->id(),
+        // ]);
+
+
         // Create a new booking
-        $booking = $item->booking()->create([
+        $booking = new Booking([
             'name' => $request->name,
             'start_date' => $start_date,
             'end_date' => $end_date,
             'address' => $request->address,
             'city' => $request->city,
             'zip' => $request->zip,
-            'user_id' => auth()->user()->id,
+            'user_id' => auth()->id(),
             'total_price' => $total_price
         ]);
 

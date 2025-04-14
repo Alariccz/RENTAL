@@ -50,6 +50,7 @@ class BookingController extends Controller
      */
     public function create()
     {
+        return response('Not implemented yet');
     }
 
     /**
@@ -60,6 +61,7 @@ class BookingController extends Controller
      */
     public function store(BookingRequest $request)
     {
+        return response('Not implemented yet');
     }
 
     /**
@@ -70,7 +72,7 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
-        //
+        return response('Not implemented yet');
     }
 
     /**

@@ -10,9 +10,11 @@ class Booking extends Model
 {
     use HasFactory, SoftDeletes;
 
-    
+
     protected $fillable = [
         'name',
+        'item_id',
+        'user_id', // ⬅️ PENTING INI HARUS ADA
         'start_date',
         'end_date',
         'address',
@@ -21,15 +23,13 @@ class Booking extends Model
         'status',
         'payment_method',
         'payment_status',
-        'payment_url',
         'total_price',
-        'item_id',
-        'user_id',
+        'payment_url',
     ];
 
     protected $casts = [
         'start_date' => 'datetime',
-        'end_date'=> 'datetime',
+        'end_date' => 'datetime',
     ];
 
     public function item()

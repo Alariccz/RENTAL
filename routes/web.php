@@ -11,6 +11,10 @@ use App\Http\Controllers\Front\LandingController;
 use App\Http\Controllers\Front\DetailController;
 use App\Http\Controllers\Front\CheckoutController;
 use App\Http\Controllers\Front\PaymentController;
+use App\Http\Controllers\Front\CatalogController;
+use App\Http\Controllers\Front\TransactionController;
+
+
 
 
 /*
@@ -28,6 +32,10 @@ Route::name('front.')->group(function (){
     Route::get('/', [LandingController::class, 'index'])->name('index');
     Route::get('/detail/{slug}', [DetailController::class, 'index'])->name('detail');
     Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
+    Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
+    Route::get('/benefits', function () {return view('benefits');})->name('benefits');
+    Route::get('/transaction', [TransactionController::class, 'transaction'])->name('transaction');
+
 
 
     Route::group(['middleware' => 'auth'], function () {
@@ -43,7 +51,7 @@ Route::prefix('admin')->name('admin.')->middleware([
     'verified',
     'admin'
 ])->group(function () {
-    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::get('dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::resource('brands', AdminBrandController::class);
     Route::resource('types', AdminTypeController::class);
     Route::resource('items', AdminItemController::class);

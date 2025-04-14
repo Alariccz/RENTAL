@@ -34,7 +34,7 @@ class Item extends Model
 
         return 'https://via.placeholder.com/800x600';
     }
-    
+
     public function brand()
     {
         return $this->belongsTo(Brand::class);
@@ -45,7 +45,7 @@ class Item extends Model
         return $this->belongsTo(Type::class);
     }
 
-    public function booking()
+    public function bookings()
     {
         return $this->hasMany(Booking::class);
     }
