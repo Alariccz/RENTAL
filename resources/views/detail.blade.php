@@ -19,7 +19,7 @@
             Details
           </li>
         </ul>
-  
+
         <div class="grid grid-cols-12 gap-[30px]">
           <!-- Car Preview -->
           <div class="col-span-12 lg:col-span-8">
@@ -36,7 +36,7 @@
               </div>
             </div>
           </div>
-  
+
           <!-- Details -->
           <div class="col-span-12 md:col-start-5 lg:col-start-auto md:col-span-8 lg:col-span-4">
             <div class="bg-white p-5 pb-[30px] rounded-3xl h-full">
@@ -54,11 +54,13 @@
                       @for ($i = 0; $i < floor($item->star); $i++)
                         <img src="/svgs/ic-star.svg" class="h-[22px] w-[22px]" alt="">
                       @endfor
+                      @for ($i = 0; $i < (5 - ceil($item->star)); $i++)
+                        <!-- Menampilkan bintang kosong -->
+                        <img src="/svgs/ic-star-empty.svg" class="h-[22px] w-[22px]" alt="">
+                      @endfor
                     </span>
-                    <p class="text-base font-semibold text-dark mt-[2px]">
-                      ({{ $item->review }})
-                    </p>
                   </div>
+
                 </div>
                 <!-- Features -->
                 <ul class="flex flex-col gap-4 flex-start pt-5 pb-[25px]">
@@ -76,7 +78,7 @@
                 <div class="flex items-center justify-between gap-4 pt-5 mt-auto">
                   <div>
                     <p class="font-bold text-dark text-[22px]">
-                      ${{ number_format($item->price) }}
+                      Rp {{ number_format($item->price) }}
                     </p>
                     <p class="text-base font-normal text-secondary">
                       /day
@@ -100,7 +102,7 @@
         </div>
       </div>
     </section>
-  
+
     <!-- FAQ -->
     <section class="container relative py-[100px]">
       <header class="text-center mb-[50px]">
@@ -109,22 +111,19 @@
         </h2>
         <p class="text-base text-secondary">Learn more about Vrom and get a success</p>
       </header>
-  
+
       <!-- Questions -->
       <div class="grid md:grid-cols-2 gap-x-[50px] gap-y-6 max-w-[910px] w-full mx-auto">
         <a href="#!" class="px-6 py-4 border rounded-[24px] border-grey h-min accordion max-w-[430px]"
            id="faq1">
           <div class="flex items-center justify-between gap-1">
             <p class="text-base font-semibold text-dark">
-              What if I crash the car?
-            </p>
+                Bagaimana cara melakukan pemesanan mobil?            </p>
             <img src="/svgs/ic-chevron-down-rounded.svg" class="transition-all" alt="">
           </div>
           <div class="hidden pt-4 max-w-[335px]" id="faq1-content">
             <p class="text-base text-dark leading-[26px]">
-              Ipsum top talent busy making race that
-              agreed both party. You can si amet lorem
-              dolor get the rewards after winninng.
+                Anda dapat memesan mobil secara mudah melalui website kami, memilih jenis mobil, tanggal penyewaan, dan lokasi pengambilan. Anda juga bisa menghubungi customer service untuk melakukan pemesanan secara langsung.
             </p>
           </div>
         </a>
@@ -132,31 +131,25 @@
            id="faq2">
           <div class="flex items-center justify-between gap-1">
             <p class="text-base font-semibold text-dark">
-              What if I crash the car?
-            </p>
+                Apakah ada batasan usia untuk menyewa mobil?</p>
             <img src="/svgs/ic-chevron-down-rounded.svg" class="transition-all" alt="">
           </div>
           <div class="hidden pt-4 max-w-[335px]" id="faq2-content">
             <p class="text-base text-dark leading-[26px]">
-              Ipsum top talent busy making race that
-              agreed both party. You can si amet lorem
-              dolor get the rewards after winninng.
-            </p>
+                Untuk menyewa mobil di tempat kami, Anda harus berusia minimal 21 tahun dan maksimal 70 tahun. Pengemudi yang berusia antara 21 hingga 25 tahun mungkin dikenakan biaya tambahan untuk asuransi.            </p>
           </div>
         </a>
         <a href="#!" class="px-6 py-4 border rounded-[24px] border-grey h-min accordion max-w-[430px]"
            id="faq3">
           <div class="flex items-center justify-between gap-1">
             <p class="text-base font-semibold text-dark">
-              What if I crash the car?
+                Apakah saya perlu memiliki SIM internasional untuk menyewa mobil?
             </p>
             <img src="/svgs/ic-chevron-down-rounded.svg" class="transition-all" alt="">
           </div>
           <div class="hidden pt-4 max-w-[335px]" id="faq3-content">
             <p class="text-base text-dark leading-[26px]">
-              Ipsum top talent busy making race that
-              agreed both party. You can si amet lorem
-              dolor get the rewards after winninng.
+               Jika Anda adalah warga negara asing, Anda perlu memiliki SIM internasional yang sah. Jika Anda adalah warga negara Indonesia, cukup menggunakan SIM A yang masih berlaku.
             </p>
           </div>
         </a>
@@ -164,53 +157,45 @@
            id="faq4">
           <div class="flex items-center justify-between gap-1">
             <p class="text-base font-semibold text-dark">
-              What if I crash the car?
+                Apakah saya bisa menyewa mobil untuk perjalanan antar kota?
             </p>
             <img src="/svgs/ic-chevron-down-rounded.svg" class="transition-all" alt="">
           </div>
           <div class="hidden pt-4 max-w-[335px]" id="faq4-content">
             <p class="text-base text-dark leading-[26px]">
-              Ipsum top talent busy making race that
-              agreed both party. You can si amet lorem
-              dolor get the rewards after winninng.
-            </p>
+                Ya, Anda bisa membawa mobil untuk perjalanan antar kota. Namun, pastikan untuk memberitahukan kami sebelumnya agar kami dapat menyesuaikan persyaratan dan asuransi kendaraan.            </p>
           </div>
         </a>
         <a href="#!" class="px-6 py-4 border rounded-[24px] border-grey h-min accordion max-w-[430px]"
            id="faq5">
           <div class="flex items-center justify-between gap-1">
             <p class="text-base font-semibold text-dark">
-              What if I crash the car?
+                Bagaimana cara membayar sewa mobil?
             </p>
             <img src="/svgs/ic-chevron-down-rounded.svg" class="transition-all" alt="">
           </div>
           <div class="hidden pt-4 max-w-[335px]" id="faq5-content">
             <p class="text-base text-dark leading-[26px]">
-              Ipsum top talent busy making race that
-              agreed both party. You can si amet lorem
-              dolor get the rewards after winninng.
-            </p>
+                Pembayaran dapat dilakukan melalui kartu kredit, transfer bank. Kami menerima berbagai metode pembayaran yang aman dan nyaman.            </p>
           </div>
         </a>
         <a href="#!" class="px-6 py-4 border rounded-[24px] border-grey h-min accordion max-w-[430px]"
            id="faq6">
           <div class="flex items-center justify-between gap-1">
             <p class="text-base font-semibold text-dark">
-              What if I crash the car?
+              Apakah Anda menawarkan layanan antar jemput?
             </p>
             <img src="/svgs/ic-chevron-down-rounded.svg" class="transition-all" alt="">
           </div>
           <div class="hidden pt-4 max-w-[335px]" id="faq6-content">
             <p class="text-base text-dark leading-[26px]">
-              Ipsum top talent busy making race that
-              agreed both party. You can si amet lorem
-              dolor get the rewards after winninng.
+                Ya, kami menawarkan layanan antar jemput ke lokasi yang Anda tentukan dengan biaya tambahan. Layanan ini dapat disesuaikan dengan kebutuhan Anda.
             </p>
           </div>
         </a>
       </div>
     </section>
-  
+
     <!-- Similar Cars -->
     <section class="bg-darkGrey">
       <div class="container relative py-[100px]">
@@ -220,7 +205,7 @@
           </h2>
           <p class="text-base text-secondary">Start your big day</p>
         </header>
-  
+
         <!-- Cars -->
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-[29px]">
           @foreach ($similiarItems as $similiarItem)
@@ -253,7 +238,7 @@
         </div>
       </div>
     </section>
-  
+
     <script src="https://cdn.jsdelivr.net/npm/vue@3.2.36/dist/vue.global.prod.js"></script>
     <script>
       const {
@@ -281,4 +266,3 @@
       }).mount('#gallery')
     </script>
   </x-front-layout>
-  

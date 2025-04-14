@@ -8,7 +8,7 @@
           </h2>
           <p class="text-base text-secondary">We will help you get ready today</p>
         </header>
-  
+
         <div class="flex items-center gap-5 lg:justify-between">
           <!-- Form Card -->
           <form action="{{ route('front.checkout.store', $item->slug) }}" method="POST"
@@ -26,7 +26,7 @@
                        class="text-base font-medium focus:border-primary focus:outline-none placeholder:text-secondary placeholder:font-normal px-[26px] py-4 border border-grey rounded-[50px]"
                        placeholder="Insert Full Name" value="{{ Auth::user()->name }}">
               </div>
-  
+
               <!-- RESULT DATES FROM-UNTIL -->
               <div class="col-span-2 grid-cols-2 gap-y-6 gap-x-4 lg:gap-x-[30px] hidden">
                 <!-- Result Date From [HIDDEN] -->
@@ -48,7 +48,7 @@
                          placeholder="Select Date" readonly x-model="dateToYmd">
                 </div>
               </div>
-  
+
               <!-- START: INPUT DATE -->
               <div class="col-span-2 grid grid-cols-2 gap-y-6 gap-x-4 lg:gap-x-[30px] relative"
                    @keydown.escape="closeDatepicker()" @click.outside="closeDatepicker()">
@@ -72,12 +72,12 @@
                          placeholder="Select Date" @click="endToShow = 'to'; init(); showDatepicker = true"
                          x-model="outputDateToValue">
                 </div>
-  
+
                 <!-- START: Date-Range Picker -->
                 <div class="absolute p-5 mt-2 bg-white rounded-[18px] top-full border border-grey w-full z-50 shadow-[0_22px_50px_0_rgba(212,214,218,0.25)]"
                      x-show="showDatepicker" x-transition>
                   <div class="flex flex-col items-center">
-  
+
                     <div class="w-full mb-5">
                       <div class="flex items-center justify-center gap-1">
                         <button type="button"
@@ -100,7 +100,7 @@
                         </button>
                       </div>
                     </div>
-  
+
                     <div class="flex flex-wrap w-full mb-3 -mx-1">
                       <template x-for="(day, index) in DAYS" :key="index">
                         <div style="width: 14.26%" class="px-1">
@@ -109,7 +109,7 @@
                         </div>
                       </template>
                     </div>
-  
+
                     <div class="flex flex-wrap -mx-1">
                       <template x-for="blankday in blankdays">
                         <div style="width: 14.28%" class="p-1 text-sm text-center border border-transparent">
@@ -136,7 +136,7 @@
                 <!-- END: Date-Range Picker -->
               </div>
               <!-- END: INPUT DATE -->
-  
+
               <!-- Delivery Address -->
               <div class="flex flex-col col-span-2 gap-3">
                 <label for="" class="text-base font-semibold text-dark">
@@ -146,7 +146,7 @@
                        class="text-base font-medium focus:border-primary focus:outline-none placeholder:text-secondary placeholder:font-normal px-[26px] py-4 border border-grey rounded-[50px]"
                        placeholder="Where should we deliver your car?">
               </div>
-  
+
               <!-- City -->
               <div class="flex flex-col col-span-1 gap-3">
                 <label for="" class="text-base font-semibold text-dark">
@@ -156,7 +156,7 @@
                        class="text-base font-medium focus:border-primary focus:outline-none placeholder:text-secondary placeholder:font-normal px-[26px] py-4 border border-grey rounded-[50px] focus:before:appearance-none focus:before:!content-none"
                        placeholder="City Name">
               </div>
-  
+
               <!-- Post Code -->
               <div class="flex flex-col col-span-1 gap-3">
                 <label for="" class="text-base font-semibold text-dark">
@@ -166,7 +166,7 @@
                        class="text-base font-medium focus:border-primary focus:outline-none placeholder:text-secondary placeholder:font-normal px-[26px] py-4 border border-grey rounded-[50px] focus:before:appearance-none focus:before:!content-none"
                        placeholder="Write code">
               </div>
-  
+
               <!-- CTA Button -->
               <div class="col-span-2 mt-[26px]">
                 <!-- Button Primary -->
@@ -181,12 +181,12 @@
               </div>
             </div>
           </form>
-  
+
           <img src="/images/porsche_small.webp" class="max-w-[50%] hidden lg:block -mr-[100px]" alt="">
         </div>
       </div>
     </section>
-  
+
     <script src="/js/dateRangePicker.js"></script>
     <script>
       // on checkoutButton click, submit the form
@@ -194,6 +194,5 @@
         $('#checkoutForm').submit();
       });
     </script>
-  
+
   </x-front-layout>
-  

@@ -109,7 +109,7 @@
             <div class="col-span-2 mt-5">
               <!-- Button Primary -->
               <div class="p-1 rounded-full bg-primary group">
-                <a href="#!" class="btn-primary" id="checkoutButton">
+                <a href="#" class="btn-primary" id="checkoutButton">
                   <p>
                     Continue
                   </p>

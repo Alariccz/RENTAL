@@ -62,8 +62,10 @@ class CheckoutController extends Controller
             'city' => $request->city,
             'zip' => $request->zip,
             'user_id' => auth()->id(),
+            'item_id' => $item->id,
             'total_price' => $total_price
         ]);
+        $booking->save();
 
         return redirect()->route('front.payment', $booking->id);
     }
