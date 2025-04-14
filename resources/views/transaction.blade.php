@@ -26,7 +26,7 @@
         <div class="mt-4 lg:mt-0 flex flex-col items-start gap-2">
           <img src="{{ optional($booking->item)->image }}" alt="{{ optional($booking->item)->name }}"
           class="w-32 h-20 object-cover rounded">
-          <a href="https://wa.me/62895377200378?text=Halo%20Admin%20RideNic%2C%20saya%20ingin%20bertanya%20mengenai%20transaksi%20saya%20di%20website.%20Mohon%20bantuannya%20ya%21"
+          <a href="https://wa.me/62895377200378?text=Halo%20Admin%20Ridenic%2C%20saya%20ingin%20bertanya%20mengenai%20transaksi%20saya%20di%20website.%20Mohon%20bantuannya%20ya%21"
           target="_blank" class="btn-primary text-sm mt-2">
           Hubungi Admin Ridenic
           </a>
